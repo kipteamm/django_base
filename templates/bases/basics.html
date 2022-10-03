@@ -1,0 +1,14 @@
+{% if messages %}
+  {% for msg in messages %}
+    <div class="alert msg-{{ msg.tags }} alert-dismissable" id="d{{ forloop.counter }}">
+      <button type="button" onclick="dismiss(this.id)" data-dismiss="alert" aria-hidden="true" id="{{ forloop.counter }}">&times; {{msg.message}}</button>    
+    </div>
+  {% endfor %}
+{% endif %}
+
+<script>
+  function dismiss(id) {
+    const elm = document.getElementById("d" + id);
+    elm.parentNode.removeChild(elm);
+  }
+</script>

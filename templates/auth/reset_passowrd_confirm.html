@@ -1,0 +1,11 @@
+{% extends "bases/home_base.html" %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %} 
+  <input type="password" name="psw_0" placeholder="Password" required>
+  <input type="password" name="psw_1" placeholder="Repeat Password" required>
+
+  <button type="submit">Reset password</button>
+</form>
+{% endblock %}

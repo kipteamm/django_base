@@ -1,0 +1,9 @@
+{% autoescape off %}
+Hello {{ user.username }},
+
+Please click the following link to confirm your registration,
+https://{{ domain }}/activate/{{ uid }}/{{ token }}
+
+Sincerely,
+INSERT_NAME
+{% endautoescape %}
