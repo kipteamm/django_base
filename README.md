@@ -5,3 +5,8 @@ After that run migrations:
 python manage.py makemigrations django_project
 python manage.py migrate
 ```
+
+# Contents
+- Signing up (with verification email)
+- Logging in and out
+- Reset password feature
