@@ -152,7 +152,7 @@ def reset_password(request):
         return render(request, 'auth/awaiting_password_rest.html')
   return render(request, 'auth/reset_password.html')
 
-# Passowrd reset confirmation
+# Password reset confirmation
 def reset_password_confirm(request, uidb64, token):
   try:
     uid = force_text(urlsafe_base64_decode(uidb64))
@@ -167,17 +167,17 @@ def reset_password_confirm(request, uidb64, token):
 
       if len(psw_0) < 8:
         messages.error(request, "Your password needs to be at least 8 characters long.")
-        return render(request, 'auth/reset_passowrd_confirm.html')
+        return render(request, 'auth/reset_password_confirm.html')
 
       if psw_0 != psw_1:
         messages.error(request, "Your passwords need to match!")
-        return render(request, 'auth/reset_passowrd_confirm.html')
+        return render(request, 'auth/reset_password_confirm.html')
       
       user.set_password(psw_0)
       user.save()
 
       messages.success(request, "Your password has been changed.")
       return redirect('login_user')
-    return render(request, 'auth/reset_passowrd_confirm.html')
+    return render(request, 'auth/reset_password_confirm.html')
   else:
     return HttpResponse('Invalid activation link.')
